@@ -1,0 +1,33 @@
+<!-- <using bootstrap divide page to 2 parts -->
+<div class= "container">
+    <!-- part 1 for display home -->
+     <div class="row">
+         <div class="col-md-5">
+              <h4><b>Book</b></h4>
+              <!-- form for insert -->
+              <form #form="ngForm" autocomplete="off" (submit)="OnSubmit(form)">
+                   <!-- hidden thing need when we need update data -->
+                  <input type ="hidden" name="Id" #Id="ngModel" [(ngModel)]="books_service.formData.Id">
+                  <div class="form-group">
+                      <!-- now after create Bookservice, by adding ngModel keyword, we can update form for view data -->
+                      <input type="text" name="BookCode" #BookCode="ngModel" [(ngModel)]="books_service.formData.BookCode" class="form-control" placeholder="Book-Code" required>
+                  </div>
+                  <div class= "form-group">
+                      <input type="text" name="BookName" #BookName="ngModel" [(ngModel)]= "books_service.formData.BookName" class= "form-control" placeholder="Book-Name" required>
+                  </div>
+                  <div class= "form-group">
+                      <input type="text" name="BookCount" #BookCount= "ngModel" [(ngModel)] = "books_service.formData.BookCount" class="form-control" placeholder="Book-Count" required>
+                  </div>
+                  <div class= "form-group">
+                      <button class="btn btn-primary" type="submit" [disabled] = "form.invalid">Submit</button>
+                  </div>
+              </form>
+             
+         </div>
+         <!-- display tray for part 2 -->
+         <div class="col-md-7">
+             <!-- tables for view books -->
+
+         </div>
+     </div>
+</div>
